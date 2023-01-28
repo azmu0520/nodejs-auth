@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "engines": {
-    "node": "≥18"
+    "node": "14.x"
   },
   "scripts": {
-    "start": "nodemon index.js",
+    "start": "node index.js",
     "build": "npm build"
   },
   "repository": {
