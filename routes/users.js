@@ -7,6 +7,7 @@ const {
   updateUser,
   blockUser,
   deleteUser,
+  unBlockUser,
 } = require('../controllers/user');
 
 router.route('/').get(auth, getAllUsers);
@@ -18,4 +19,5 @@ router
   .patch(auth, blockUser)
   .delete(auth, deleteUser);
 
+router.route('/:_id/unblock').patch(auth, unBlockUser);
 module.exports = router;
