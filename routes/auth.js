@@ -22,9 +22,14 @@ router.post('/register', async (req, res) => {
 
 router.post('/login', async (req, res) => {
   const user = await User.findOne({ email: req.body.email });
-  if (!user) return res.status(400).send('Email is wrong');
+  if (!user)
+    return res.status(400).send({ error: 'Email or Password is wrong' });
   const validPass = req.body.password;
-  if (!validPass) return res.status(400).send('Invalid password');
+  if (!validPass)
+    return res.status(400).send({ error: 'Email or Password is wrong' });
+  if (!user.status) {
+    return res.status(400).send({ error: 'User is blocked' });
+  }
   // Create and assign a token
   const token = jwt.sign({ _id: user._id }, process.env.TOKEN_KEY);
   res.header('auth-token', token).send({ token });
