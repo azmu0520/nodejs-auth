@@ -26,4 +26,4 @@ app.use('/api/user', authRoute);
 app.use('/api/users', usersRoute);
 app.use('/api/posts', postRoute);
 
-app.listen(3000, () => console.log('Server is runing'));
+app.listen(5000, () => console.log('Server is runing'));

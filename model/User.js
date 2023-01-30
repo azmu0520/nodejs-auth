@@ -25,6 +25,10 @@ const userSchema = new mongoose.Schema({
     type: Boolean,
     default: true,
   },
+  user_id: {
+    type: String,
+    default: Date.now().toString(36),
+  },
 });
 
 module.exports = mongoose.model('User', userSchema);
